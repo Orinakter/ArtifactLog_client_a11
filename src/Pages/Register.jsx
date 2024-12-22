@@ -8,7 +8,7 @@ import { authorizedContext } from "../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Register = () => {
-  const {registerUser,userProfileUpdate} = useContext(authorizedContext)
+  const {registerUser,userProfileUpdate,googleLoginBtn} = useContext(authorizedContext)
   const [errorMessage,setErrorMessage] = useState(null)
   const navigate = useNavigate()
   const registerFormHandler = (e)=>{
@@ -48,6 +48,28 @@ const Register = () => {
         setErrorMessage(error.message);
       });
   };
+
+  const googleRegisterHandler  = ()=>{
+      googleLoginBtn()
+  
+      .then(result=>{
+        if(state){
+          navigate(state)
+        }
+        else{
+          navigate("/")
+  
+        }
+        navigate("/")
+        toast.success ("User Login Successfully")
+      })
+      .catch(error=>{
+        setErrorMessage(error.message)
+        
+      })
+      
+  
+    }
 
 
 
@@ -137,7 +159,7 @@ const Register = () => {
             </div>
           </form>
           <div className="text-center">
-            <button className="btn w-full bg-white shadow-xl text-black font-semibold gap-3 p-2 text-lg">
+            <button onClick={googleRegisterHandler} className="btn w-full bg-white shadow-xl text-black font-semibold gap-3 p-2 text-lg">
               <FcGoogle className="text-2xl" />
               Login With Google
             </button>

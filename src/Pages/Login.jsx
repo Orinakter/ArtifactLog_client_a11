@@ -1,20 +1,69 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { MdEmail, MdOutlineMail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { authorizedContext } from '../AuthProvider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = () => {
-  
+  const {loginUser,googleLoginBtn} = useContext(authorizedContext)
+  const [errorMessage,setErrorMessage] = useState("")
+  const navigate = useNavigate()
 
 
   const loginFormHandler = (e)=>{
     e.preventDefault()
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email,password);
+    
+    setErrorMessage("")
+
+    loginUser (email,password)
+    .then(result=>{
+      toast.success("User Login Successfully")
+
+      if(state){
+        navigate(state)
+      }
+      else{
+        navigate("/")
+
+      }
+      
+      
+    })
+
+    .catch (error=>{
+      setErrorMessage(error.message)
+
+    });
+    
+  }
+
+  const googleLoginHandler  = ()=>{
+    googleLoginBtn()
+
+    .then(result=>{
+      if(state){
+        navigate(state)
+      }
+      else{
+        navigate("/")
+
+      }
+      navigate("/")
+      toast.success ("User Login Successfully")
+    })
+    .catch(error=>{
+      setErrorMessage(error.message)
+      
+    })
+    
 
   }
+
+  
 
 
 
@@ -88,7 +137,7 @@ const Login = () => {
 </div>
 
 <div className="text-center flex items-center gap-3">
-  <button className='btn w-full bg-white py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition duration-300'><span className='text-2xl'><FcGoogle /></span>Login with Google</button>
+  <button onClick={googleLoginHandler} className='btn w-full bg-white py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition duration-300'><span className='text-2xl'><FcGoogle /></span>Login with Google</button>
 </div>
 <p className="text-center text-sm  mt-4">
             Don't have an Account?
