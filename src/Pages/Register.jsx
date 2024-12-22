@@ -1,30 +1,75 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { FaUserLarge } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineMail, MdPhotoLibrary } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { authorizedContext } from "../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
+  const {registerUser,userProfileUpdate} = useContext(authorizedContext)
+  const [errorMessage,setErrorMessage] = useState(null)
+  const navigate = useNavigate()
+  const registerFormHandler = (e)=>{
+    e.preventDefault()
+    const name = e.target.name.value;
+    const photoUrl = e.target.photoUrl.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    setErrorMessage("")
+    const lowercaseRegex = /^(?=.*[a-z]).+$/;
+    if(!lowercaseRegex.test(password)){
+      toast.error("You Should need one Lowercase")
+      return
+
+    }
+
+   const uppercaseRegex = /^(?=.*[A-Z]).+$/;
+   if(!uppercaseRegex.test(password)){
+    toast.error("You Should need one Uppercase")
+    return
+   }
+
+   if(password.length<6){
+    toast.error("Password Should be 6 digit")
+    
+   }
+
+   registerUser(email, password)
+      .then((data) => {
+        userProfileUpdate(name,photoUrl)
+         navigate("/")
+
+        toast.success("User Registation Successfully");
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
+  };
+
+
+
   return (
-    <div className=" flex  items-center justify-center mt-12">
-      <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl flex overflow-hidden">
-        <div className="w-1/2 p-10">
+    <div className="flex  items-center justify-center mt-12">
+      <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl flex flex-col lg:flex-row overflow-hidden">
+        <div className="lg:w-1/2 p-10">
           <h2 className="text-2xl text-blue-500 text-center font-bold mb-4">
             Welcome to ArtifactLog
           </h2>
           <img
             src="https://i.ibb.co.com/JcsWsPD/tablet-login-concept-illustration-114360-7963.jpg"
             alt=""
-            className=""
+            className="w-full h-full"
           />
         </div>
 
-        <div className="w-1/2 p-10">
+        <div className="lg:w-1/2 p-10">
           <h2 className="text-3xl font-bold mb-3 text-blue-500 text-center">
             Log In your Account
           </h2>
-          <form className="card-body">
+          <form onSubmit={registerFormHandler} className="card-body">
             <div className="form-control">
               <label className="flex justify-start items-center gap-2 mb-2 ">
                 <span className="text-xl text-blue-500">
@@ -92,7 +137,7 @@ const Register = () => {
             </div>
           </form>
           <div className="text-center">
-            <button className="btn shadow-xl text-black font-semibold gap-3 p-2 text-lg">
+            <button className="btn w-full bg-white shadow-xl text-black font-semibold gap-3 p-2 text-lg">
               <FcGoogle className="text-2xl" />
               Login With Google
             </button>
@@ -101,7 +146,7 @@ const Register = () => {
           <p className="text-center text-sm mt-4">
             Don't have an Account?
             <Link to="/login">
-              <span className="text-blue-500 hover:underline">Login Now</span>
+              <span className="text-blue-500 hover:underline font-bold"> Login Now</span>
             </Link>
           </p>
         </div>

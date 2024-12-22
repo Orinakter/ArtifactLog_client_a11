@@ -1,26 +1,40 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { MdEmail, MdOutlineMail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+  
+
+
+  const loginFormHandler = (e)=>{
+    e.preventDefault()
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email,password);
+
+  }
+
+
+
+
     return (
         <div className=" flex  items-center justify-center mt-12">
-        <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl flex overflow-hidden">
+        <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl flex flex-col lg:flex-row overflow-hidden">
          
-          <div className="w-1/2 p-10">
+          <div className="lg:w-1/2 p-10">
           <h2 className="text-2xl text-blue-500 text-center font-bold mb-4">Welcome to ArtifactLog</h2>
-          <img src="https://i.ibb.co.com/JcsWsPD/tablet-login-concept-illustration-114360-7963.jpg" alt="" className='' />
+          <img src="https://i.ibb.co.com/JcsWsPD/tablet-login-concept-illustration-114360-7963.jpg" alt="" className='w-full h-full' />
           
             
            
           </div>
   
          
-          <div className="w-1/2 p-10">
+          <div className="lg:w-1/2 p-10">
             <h2 className="text-3xl font-bold mb-3 text-blue-500 text-center">Log In your Account</h2>
-            <form>
+            <form onSubmit={loginFormHandler}>
             <div className="form-control mt-2">
               <label className="flex justify-start items-center gap-2 mb-3 mt-4">
                 <span className="text-xl text-blue-500">
