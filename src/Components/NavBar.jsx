@@ -4,19 +4,19 @@ import { toast } from "react-toastify";
 import { authorizedContext } from "../AuthProvider/AuthProvider";
 
 const NavBar = () => {
-  const {user,logOut} = useContext(authorizedContext)
-  const navigate = useNavigate()
+  const { user, logOut } = useContext(authorizedContext);
+  const navigate = useNavigate();
 
-  const signoutHandler = ()=>{
+  const signoutHandler = () => {
     logOut()
-    .then(()=>{
-      navigate("/login")
-      toast.success("User Logout Successfully")
-    })
-    .catch(error=>{
-      toast.error(error.message)
-    })
-  }
+      .then(() => {
+        navigate("/login");
+        toast.success("User Logout Successfully");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
   const navList = (
     <>
       <NavLink to="/">
@@ -64,27 +64,44 @@ const NavBar = () => {
               alt=""
               className="w-[50px] h-[50px] rounded-full"
             />
-            <h1 className="text-xl font-bold text-blue-500">
-              ArtifactLog
-            </h1>
+            <h1 className="text-xl font-bold text-blue-500">ArtifactLog</h1>
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 flex gap-4">{navList}</ul>
         </div>
         <div className="navbar-end flex gap-4">
-        {
-          user ? <div className="flex justify-center items-center gap-3">
-            <img 
-            referrerPolicy="no-referrer"
-             className="w-10 h-10 rounded-full" src={user.photoURL} alt="" />
+          {user ? (
+            <div className="flex justify-center items-center gap-3">
+              <div className="dropdown">
+                <div tabIndex={0} role="button" className="btn m-1">
+                  <img
+                    referrerPolicy="no-referrer"
+                    className="w-10 h-10 rounded-full"
+                    src={user?.photoURL}
+                    alt=""
+                  />
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+                >
+                  <NavLink to="/my-artifacts"><li>My-Artifacts</li></NavLink>
+                  <NavLink to="/liked-artifacts"><li>Liked-Artifacts</li></NavLink>
+                </ul>
+              </div>
+              <div className="flex justify-center items-center gap-3">
+            
             <button onClick={signoutHandler} className="btn bg-blue-500 text-white font-bold">Log-Out</button>
-          </div> :
-           <Link to="/login"><button className="btn bg-blue-500 text-white font-bold rounded-xl">
-           Login
-         </button></Link>
-        }
-          
+          </div>
+            </div>
+          ) : (
+            <Link to="/login">
+              <button className="btn bg-blue-500 text-white font-bold rounded-xl">
+                Login
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

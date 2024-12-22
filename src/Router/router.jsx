@@ -6,6 +6,8 @@ import AllArtifacts from "../Pages/AllArtifacts";
 import AddArtifacts from "../Pages/AddArtifacts";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import MyArtifacts from "../Pages/MyArtifacts";
+import LikedArtifacts from "../Pages/LikedArtifacts";
 
 
 
@@ -35,6 +37,16 @@ export const router = createBrowserRouter([
               path: "/register",
               element: <Register></Register>
             },
+            {
+              path: "/my-artifacts",
+              element: <MyArtifacts></MyArtifacts>
+            },
+
+            {
+              path: "/liked-artifacts",
+              element: <LikedArtifacts></LikedArtifacts>
+            },
+
           ],
 
     }
