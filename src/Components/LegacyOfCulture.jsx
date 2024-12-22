@@ -8,7 +8,7 @@ const LegacyOfCulture = () => {
       <div className="container mx-auto px-6 lg:px-16">
         
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold tracking-wide">
+          <h2 className="text-4xl font-bold">
             Legacy of Cultures
           </h2>
           <p className="text-lg mt-4 max-w-3xl mx-auto">
@@ -19,7 +19,7 @@ const LegacyOfCulture = () => {
        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
          
-          <div className="relative bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+          <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
             <img
               src="https://i.ibb.co.com/crZwQc7/pexels-fatih-berat-orer-415995323-29861887.jpg"
               alt=""
@@ -36,7 +36,7 @@ const LegacyOfCulture = () => {
           </div>
 
          
-          <div className="relative bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+          <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
             <img
               src="https://i.ibb.co.com/zFFfWVR/pexels-zonghaofeng-27573828.jpg"
               alt=""
@@ -53,7 +53,7 @@ const LegacyOfCulture = () => {
           </div>
 
          
-          <div className="relative bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+          <div className="relative bg-white rounded-lg overflow-hidden shadow-lg">
             <img
               src="https://i.ibb.co.com/8P6mg4P/pexels-fer-martinez-gonzalez-772917-12028952.jpg"
               alt=""
