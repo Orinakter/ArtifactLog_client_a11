@@ -14,7 +14,7 @@ const ErrorPage = () => {
                 <h1 className='text-4xl font-bold text-center mb-5'>{error.data}</h1>
             </div>
             <div className="text-center mt-12">
-                <Link to ="/"><button className='btn bg-gradient-to-r from-blue-500 to-black text-white py-3 rounded-lg text-lg font-bold hover:opacity-90 transition duration-300'>Return Home</button></Link>
+                <Link to ="/"><button className='btn bg-blue-500 text-white py-3 rounded-lg text-lg font-bold hover:opacity-90 transition duration-300'>Return Home</button></Link>
             </div>
            
         </div>
