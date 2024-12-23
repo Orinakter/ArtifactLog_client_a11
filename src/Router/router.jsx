@@ -20,6 +20,7 @@ export const router = createBrowserRouter([
             {
               path: "/",
               element: <HomePage></HomePage>,
+              loader:()=>fetch('http://localhost:5000/artifactCard')
             },
             {
               path: "/all-artifacts",
