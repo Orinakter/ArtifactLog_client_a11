@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const FeaturedArtifacts = ({allData}) => {
     return (
@@ -13,7 +14,7 @@ const FeaturedArtifacts = ({allData}) => {
                             <p><span className='font-bold text-xl'>Historical-Context: </span> {item?.historicalContext}</p>
                             <p><span className='font-bold text-xl'>Likes: </span> {item?.likes}</p>
                             <div className="text-center mt-4">
-                                <button className='btn bg-blue-500 text-white font-bold'>View Details</button>
+                                <Link to={`/artifact-details/${item?._id}`}><button className='btn bg-blue-500 text-white font-bold'>View Details</button></Link>
                             </div>
 
 

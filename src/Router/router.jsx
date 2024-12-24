@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, useParams } from "react-router-dom";
 import RootLayout from "../RootLayout/RootLayout";
 import ErrorPage from "../Pages/ErrorPage";
 import HomePage from "../Pages/HomePage";
@@ -8,6 +8,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import MyArtifacts from "../Pages/MyArtifacts";
 import LikedArtifacts from "../Pages/LikedArtifacts";
+import ArtifactDetails from "../Pages/ArtifactDetails";
 
 
 
@@ -47,6 +48,13 @@ export const router = createBrowserRouter([
               path: "/liked-artifacts",
               element: <LikedArtifacts></LikedArtifacts>
             },
+
+            {
+              path: "/artifact-details/:id",
+              element: <ArtifactDetails></ArtifactDetails>,
+              loader:({params})=>fetch(`http://localhost:5000/artifactlog/${params.id}`)
+            },
+
 
           ],
 
