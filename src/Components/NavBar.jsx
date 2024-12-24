@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { authorizedContext } from "../AuthProvider/AuthProvider";
 
 const NavBar = () => {
   const { user, logOut } = useContext(authorizedContext);
+  const [hoverPhoto,setHoverPhoto] = useState(false)
   const navigate = useNavigate();
 
   const signoutHandler = () => {
@@ -32,7 +33,7 @@ const NavBar = () => {
   );
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className={`navbar relative`}>
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -70,9 +71,24 @@ const NavBar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 flex gap-4">{navList}</ul>
         </div>
+
+        <div onMouseLeave={()=>setHoverPhoto(false)} 
+        className={`${hoverPhoto ? "flex" : "hidden"}`}>
+          <div className="p-10 bg-slate-100 absolute z-50 top-16 right-2 flex flex-col gap-8">
+            <h1>{user?.displayName}</h1>
+            <button onClick={signoutHandler}
+             className="bg-blue-500 text-white font-bold">
+              Logout</button>
+
+          </div>
+        </div>
+
+
         <div className="navbar-end flex gap-4">
           {user ? (
-            <div className="flex justify-center items-center gap-3">
+            <div onMouseOver={()=>setHoverPhoto(true)} 
+            onMouseOut={()=>setHoverPhoto(true)}
+             className="flex justify-center items-center gap-3">
               <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn m-1">
                   <img
