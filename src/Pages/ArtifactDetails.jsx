@@ -5,10 +5,23 @@ import { authorizedContext } from "../AuthProvider/AuthProvider";
 const ArtifactDetails = () => {
   const data = useLoaderData();
   console.log(data);
-  const { user } = useContext(authorizedContext);
+  const { user,loading } = useContext(authorizedContext);
 
   return (
-    <div className="mt-24 md:max-w-[800px] border-2 mx-auto rounded-xl bg-[#E6F2FA]">
+    <div className="">
+      {
+        loading?(
+          <div className="text-center">
+          <div className="">
+            <span className="loading loading-bars loading-xs"></span>
+            <span className="loading loading-bars loading-sm"></span>
+            <span className="loading loading-bars loading-md"></span>
+            <span className="loading loading-bars loading-lg"></span>
+          </div>
+        </div>
+        ):(
+
+          <div className="mt-24 md:max-w-[800px] border-2 mx-auto rounded-xl bg-[#E6F2FA]">
       <div
         key={data?._id}
         className="flex-col flex lg:flex-row justify-center items-center gap-16 p-8"
@@ -35,6 +48,11 @@ const ArtifactDetails = () => {
       
         
     </div>
+
+        )
+      }
+    </div>
+    
   );
 };
 

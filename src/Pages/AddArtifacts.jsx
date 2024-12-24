@@ -61,6 +61,7 @@ const AddArtifacts = () => {
             type="text"
             id="artifactName"
             name="artifactName"
+            placeholder="Enter artifact name"
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             required
           />
@@ -74,6 +75,7 @@ const AddArtifacts = () => {
             type="text"
             id="artifactImage"
             name="artifactImage"
+            placeholder="Enter image URL"
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             required
           />
@@ -104,6 +106,7 @@ const AddArtifacts = () => {
           <textarea
             id="historicalContext"
             name="historicalContext"
+            placeholder="Enter historical context"
             type="text"
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             required
@@ -118,6 +121,7 @@ const AddArtifacts = () => {
             type="text"
             id="createdAt"
             name="createdAt"
+            placeholder="e.g., 100 BC"
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             required
           />
@@ -131,6 +135,7 @@ const AddArtifacts = () => {
             type="text"
             id="discoveredAt"
             name="discoveredAt"
+            placeholder="e.g., 1799"
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             required
           />
@@ -144,6 +149,7 @@ const AddArtifacts = () => {
             type="text"
             id="discoveredBy"
             name="discoveredBy"
+            placeholder="Enter discoverer's name"
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             required
           />
@@ -157,6 +163,7 @@ const AddArtifacts = () => {
             type="text"
             id="presentLocation"
             name="presentLocation"
+            placeholder="Enter present location"
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             required
           />

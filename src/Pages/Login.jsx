@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { MdEmail, MdOutlineMail } from 'react-icons/md';
 import { RiLockPasswordFill } from 'react-icons/ri';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authorizedContext } from '../AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
 
@@ -10,6 +10,7 @@ const Login = () => {
   const {loginUser,googleLoginBtn} = useContext(authorizedContext)
   const [errorMessage,setErrorMessage] = useState("")
   const navigate = useNavigate()
+  const {state} = useLocation()
 
 
   const loginFormHandler = (e)=>{
@@ -52,7 +53,7 @@ const Login = () => {
         navigate("/")
 
       }
-      navigate("/")
+     
       toast.success ("User Login Successfully")
     })
     .catch(error=>{

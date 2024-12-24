@@ -9,6 +9,8 @@ import Register from "../Pages/Register";
 import MyArtifacts from "../Pages/MyArtifacts";
 import LikedArtifacts from "../Pages/LikedArtifacts";
 import ArtifactDetails from "../Pages/ArtifactDetails";
+import PrivateRoute from "../Pages/PrivateRoute";
+
 
 
 
@@ -29,7 +31,12 @@ export const router = createBrowserRouter([
             },
             {
               path: "/add-artifacts",
-              element: <AddArtifacts></AddArtifacts>,
+              element: (
+                <PrivateRoute>
+                   <AddArtifacts></AddArtifacts>,
+                </PrivateRoute>
+              )
+                
             },
             {
               path: "/login",
@@ -41,17 +48,29 @@ export const router = createBrowserRouter([
             },
             {
               path: "/my-artifacts",
-              element: <MyArtifacts></MyArtifacts>
+              element: (
+              <PrivateRoute>
+                <MyArtifacts></MyArtifacts>
+              </PrivateRoute>
+              )
             },
 
             {
               path: "/liked-artifacts",
-              element: <LikedArtifacts></LikedArtifacts>
+              element: (
+                <PrivateRoute>
+                  <LikedArtifacts></LikedArtifacts>
+                </PrivateRoute>
+              )
             },
 
             {
               path: "/artifact-details/:id",
-              element: <ArtifactDetails></ArtifactDetails>,
+              element: (
+                <PrivateRoute>
+                  <ArtifactDetails></ArtifactDetails>,
+                </PrivateRoute>
+              ),
               loader:({params})=>fetch(`http://localhost:5000/artifactlog/${params.id}`)
             },
 
