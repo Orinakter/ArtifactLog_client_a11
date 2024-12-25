@@ -59,11 +59,11 @@ const NavBar = () => {
               {navList}
             </ul>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center ">
             <img
-              src="https://i.ibb.co.com/tsYxSJZ/images.jpg"
+              src="https://i.ibb.co.com/ggyxXy7/360-F-104185226-IKo-Yj7o-Cdg-Ier8bbn-Kg-Idw-IOSxsgg-TXo-1.jpg"
               alt=""
-              className="w-[50px] h-[50px] rounded-full"
+              className="w-[50px] h-[40px] rounded-full"
             />
             <h1 className="text-xl font-bold text-blue-500">ArtifactLog</h1>
           </div>

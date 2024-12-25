@@ -46,6 +46,8 @@ const Register = () => {
         toast.success("User Registation Successfully");
       })
       .catch((error) => {
+        navigate("/")
+        toast.error("All fields are required")
         setErrorMessage(error.message);
       });
   };
