@@ -9,7 +9,8 @@ const ArtifactDetails = () => {
  
   const { user,loading } = useContext(authorizedContext);
   const [data,setData] = useState({})
-  const [likeLoad,setLikeLoad] = useState(1)
+
+  const [likeLoad,setLikeLoad] = useState(true)
 
   const {id} = useParams()
 
@@ -29,7 +30,7 @@ const ArtifactDetails = () => {
     axios.patch(`http://localhost:5000/artifactLike/${id}`)
 
     .then(res=>{
-     setLikeLoad(likeLoad+1)
+     setLikeLoad(false)
     })
 
     const body = {
@@ -46,9 +47,13 @@ const ArtifactDetails = () => {
     .then(res=>{
       console.log(res.data);
     })
-     
+  }
 
-
+  const disLikeHandler = (id)=>{
+    axios.patch(`http://localhost:5000/artifactDisLike/${id}`)
+    .then(res=>{
+      setLikeLoad(true)
+    })
 
   }
 
@@ -89,7 +94,11 @@ const ArtifactDetails = () => {
           <p><span className="text-xl font-bold">PresentLocation: </span>{data?.presentLocation}</p>
         
           <div className="flex-col flex lg:flex-row items-center gap-5 text-center mt-8 justify-center">
-            <button onClick={()=>likeHandler(data?._id)} className="btn bg-blue-500 text-white font-bold">Like</button>
+            {
+              likeLoad ? <button onClick={()=>likeHandler(data?._id)} className="btn bg-blue-500 text-white font-bold">Like</button> :
+              <button onClick={()=>disLikeHandler(data?._id)} className="btn bg-red-600 text-white font-bold">Dislike</button>
+
+            }
             <button  className="btn bg-blue-500 text-white font-bold"> Like Count: {data?.likes} </button>
         </div>
         </div>

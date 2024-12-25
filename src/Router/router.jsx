@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
             {
               path: "/update-artifact/:id",
               element: <UpdateArtifact></UpdateArtifact>,
-              loader : ({params})=>fetch(`http://localhost:5000/updateArtifact/${params.id}`)
+              loader : ({params})=>fetch(`http://localhost:5000/artifactlog/${params.id}`)
             },
             {
               path: "/my-artifacts",

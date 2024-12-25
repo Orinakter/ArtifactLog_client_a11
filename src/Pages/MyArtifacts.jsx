@@ -10,8 +10,7 @@ const MyArtifacts = () => {
   const [artifacts, setArtifacts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const navigate = useNavigate();
-
+  
   useEffect(() => {
     fetch(`http://localhost:5000/myArtifact/${user?.email}`)
       .then((res) => res.json())

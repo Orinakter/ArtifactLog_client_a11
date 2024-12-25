@@ -2,10 +2,12 @@ import { useContext } from "react";
 import { authorizedContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
 
 
 
 const UpdateArtifact = () => {
+    const data = useLoaderData()
     const {user} = useContext(authorizedContext)
 
     const updateArtifactHandler = (e)=>{
@@ -22,7 +24,7 @@ const UpdateArtifact = () => {
     const discoveredAt = e.target.discoveredAt.value;
     const discoveredBy = e.target.discoveredBy.value;
     const presentLocation = e.target.presentLocation.value;
-    const likes = 0;
+    
 
     const updateArtifactInfo = {
       artifactName,
@@ -35,13 +37,13 @@ const UpdateArtifact = () => {
       presentLocation,
       artifactAdderName,
       artifactAdderEmail,
-      likes,
+     
     };
 
     axios
-    .patch(`http://localhost:5000/artifactlog`, updateArtifactInfo)
-    .then((data) => {
-      console.log(data.data);
+    .patch(`http://localhost:5000/updateArtifact/${data._id}`, updateArtifactInfo)
+    .then((res) => {
+      console.log(res.data);
 
       Swal.fire({
         title: "Success",
@@ -68,6 +70,7 @@ const UpdateArtifact = () => {
           <input
             type="text"
             id="artifactName"
+            defaultValue={data?.artifactName}
             name="artifactName"
             placeholder="Enter artifact name"
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -84,6 +87,7 @@ const UpdateArtifact = () => {
             id="artifactImage"
             name="artifactImage"
             placeholder="Enter image URL"
+            defaultValue={data?.artifactImage}
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             required
           />
