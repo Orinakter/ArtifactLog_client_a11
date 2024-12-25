@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { authorizedContext } from "../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const ArtifactDetails = () => {
   const data = useLoaderData();
@@ -9,6 +10,11 @@ const ArtifactDetails = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>
+        ArtifactDetails || ArtifactLog
+        </title>
+      </Helmet>
       {
         loading?(
           <div className="text-center">

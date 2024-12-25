@@ -6,6 +6,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
 import { authorizedContext } from "../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const {registerUser,userProfileUpdate,googleLoginBtn} = useContext(authorizedContext)
@@ -74,7 +75,13 @@ const Register = () => {
 
 
   return (
-    <div className="flex  items-center justify-center mt-12">
+    <div className="">
+      <Helmet>
+        <title>
+        Register || ArtifactLog
+        </title>
+      </Helmet>
+      <div className="flex  items-center justify-center mt-12">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-4xl flex flex-col lg:flex-row overflow-hidden">
         <div className="lg:w-1/2 p-10">
           <h2 className="text-2xl text-blue-500 text-center font-bold mb-4">
@@ -173,6 +180,7 @@ const Register = () => {
           </p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

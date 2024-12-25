@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { authorizedContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const AddArtifacts = () => {
   const { user } = useContext(authorizedContext);
@@ -50,7 +51,13 @@ const AddArtifacts = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto mt-8 p-6 bg-[#E6F2FA] rounded-lg shadow-md">
+    <div className="">
+      <Helmet>
+        <title>
+        AddArtifacts || ArtifactLog
+        </title>
+      </Helmet>
+      <div className="max-w-2xl mx-auto mt-8 p-6 bg-[#E6F2FA] rounded-lg shadow-md">
       <h1 className="text-2xl font-semibold text-center mb-6">Add Artifact</h1>
       <form onSubmit={addArtifactHandler} className="space-y-4">
         <div>
@@ -189,6 +196,7 @@ const AddArtifacts = () => {
           Add Artifact
         </button>
       </form>
+    </div>
     </div>
   );
 };

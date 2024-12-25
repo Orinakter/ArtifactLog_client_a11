@@ -1,5 +1,6 @@
 import { Axios } from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 const AllArtifacts = () => {
@@ -11,7 +12,13 @@ const AllArtifacts = () => {
         
     })
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12'>
+        <div className="">
+            <Helmet>
+                <title>
+                AllArtifacts || ArtifactLog 
+                </title>
+            </Helmet>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12'>
             {
                 artifactData.map(item=>(
                     <div key={item._id} className="border-2 p-8 rounded-xl">
@@ -31,6 +38,7 @@ const AllArtifacts = () => {
                 ))
             }
             
+        </div>
         </div>
     );
 };
