@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 
 const ArtifactDetails = () => {
   const data = useLoaderData();
-  console.log(data);
+  
   const { user,loading } = useContext(authorizedContext);
 
   return (
