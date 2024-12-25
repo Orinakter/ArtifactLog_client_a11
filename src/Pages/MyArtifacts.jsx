@@ -1,24 +1,52 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
-import { data, Link, useNavigate} from "react-router-dom";
+import { data, Link, useNavigate } from "react-router-dom";
 import { authorizedContext } from "../AuthProvider/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const MyArtifacts = () => {
   const { user } = useContext(authorizedContext);
   const [artifacts, setArtifacts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate()
- 
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5000/myArtifact/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setArtifacts(data);
-        setLoading(false)
+        setLoading(false);
       });
   }, []);
-  console.log(artifacts);
+
+  const deleteHandler = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`http://localhost:5000/deleteArtifact/${id}`)
+          .then((res) => {
+            const remining = artifacts.filter((item) => item._id !== id);
+            setArtifacts(remining);
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          });
+        
+      }
+    });
+  };
 
   return (
     <div className="">
@@ -72,9 +100,18 @@ const MyArtifacts = () => {
                 {item?.presentLocation}
               </p>
               <div className="flex justify-center items-center gap-4 mt-6">
-                
-               <Link to = {`/update-artifact/${item?._id}`}> <button className="btn bg-blue-500 text-white font-bold">Update</button></Link>
-                <button className="btn bg-red-600 text-white font-bold">Delete</button>
+                <Link to={`/update-artifact/${item?._id}`}>
+                  {" "}
+                  <button className="btn bg-blue-500 text-white font-bold">
+                    Update
+                  </button>
+                </Link>
+                <button
+                  onClick={() => deleteHandler(item?._id)}
+                  className="btn bg-red-600 text-white font-bold"
+                >
+                  Delete
+                </button>
               </div>
             </div>
           ))}
