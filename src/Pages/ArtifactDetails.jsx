@@ -27,9 +27,28 @@ const ArtifactDetails = () => {
   const likeHandler = (id)=>{
 
     axios.patch(`http://localhost:5000/artifactLike/${id}`)
+
     .then(res=>{
      setLikeLoad(likeLoad+1)
     })
+
+    const body = {
+      postId : data._id,
+      artifactImage : data.artifactImage,
+      artifactName : data.artifactName,
+      artifactType : data.artifactType,
+      presentLocation : data. presentLocation,
+      likeUser : user?.email
+
+    }
+
+    axios.post(`http://localhost:5000/like`,body)
+    .then(res=>{
+      console.log(res.data);
+    })
+     
+
+
 
   }
 
