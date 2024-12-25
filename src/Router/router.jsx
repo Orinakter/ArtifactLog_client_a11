@@ -10,6 +10,7 @@ import MyArtifacts from "../Pages/MyArtifacts";
 import LikedArtifacts from "../Pages/LikedArtifacts";
 import ArtifactDetails from "../Pages/ArtifactDetails";
 import PrivateRoute from "../Pages/PrivateRoute";
+import UpdateArtifact from "../Pages/UpdateArtifact";
 
 
 
@@ -47,6 +48,11 @@ export const router = createBrowserRouter([
               element: <Register></Register>
             },
             {
+              path: "/update-artifact/:id",
+              element: <UpdateArtifact></UpdateArtifact>,
+              loader : ({params})=>fetch(`http://localhost:5000/updateArtifact/${params.id}`)
+            },
+            {
               path: "/my-artifacts",
               element: (
               <PrivateRoute>
@@ -64,6 +70,7 @@ export const router = createBrowserRouter([
               )
             },
 
+
             {
               path: "/artifact-details/:id",
               element: (
@@ -71,7 +78,7 @@ export const router = createBrowserRouter([
                   <ArtifactDetails></ArtifactDetails>,
                 </PrivateRoute>
               ),
-              loader:({params})=>fetch(`http://localhost:5000/artifactlog/${params.id}`)
+              
             },
 
 

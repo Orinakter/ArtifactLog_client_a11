@@ -76,11 +76,11 @@ const NavBar = () => {
           onMouseLeave={() => setHoverPhoto(false)}
           className={`${hoverPhoto ? "flex" : "hidden"}`}
         >
-          <div className="p-10 bg-slate-100 absolute z-50 top-16 right-2 flex flex-col gap-8">
+          <div className="p-10 bg-slate-100 absolute z-10 top-16 right-6 flex flex-col gap-8">
             <h1>{user?.displayName}</h1>
             <button
               onClick={signoutHandler}
-              className="bg-blue-500 text-white font-bold"
+              className=" btn bg-blue-500 text-white font-bold"
             >
               Logout
             </button>
@@ -105,10 +105,10 @@ const NavBar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+                  className="dropdown-content menu bg-base-100 rounded-box z-20 w-52 p-6 shadow"
                 >
                   <NavLink to="/my-artifacts">
-                    <li>My-Artifacts</li>
+                    <li className="mb-3">My-Artifacts</li>
                   </NavLink>
                   <NavLink to="/liked-artifacts">
                     <li>Liked-Artifacts</li>

@@ -1,12 +1,37 @@
-import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useLoaderData, useParams } from "react-router-dom";
 import { authorizedContext } from "../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet";
+import axios from "axios";
 
 const ArtifactDetails = () => {
-  const data = useLoaderData();
-  
+
+ 
   const { user,loading } = useContext(authorizedContext);
+  const [data,setData] = useState({})
+  const [likeLoad,setLikeLoad] = useState(1)
+
+  const {id} = useParams()
+
+  useEffect(()=>{
+    axios.get(`http://localhost:5000/artifactlog/${id}`)
+    .then(res=>{
+      setData(res.data);
+    })
+
+  },[id,likeLoad])
+
+
+
+
+  const likeHandler = (id)=>{
+
+    axios.patch(`http://localhost:5000/artifactLike/${id}`)
+    .then(res=>{
+     setLikeLoad(likeLoad+1)
+    })
+
+  }
 
   return (
     <div className="">
@@ -43,10 +68,10 @@ const ArtifactDetails = () => {
           <p><span className="text-xl font-bold">DiscoveredAt: </span>{data?.discoveredAt}</p>
           <p><span className="text-xl font-bold">DiscoveredBy: </span>{data?.discoveredBy}</p>
           <p><span className="text-xl font-bold">PresentLocation: </span>{data?.presentLocation}</p>
-          <p><span className="text-xl font-bold">Likes: </span>{data?.likes}</p>
+        
           <div className="flex-col flex lg:flex-row items-center gap-5 text-center mt-8 justify-center">
-            <button className="btn bg-blue-500 text-white font-bold">Like</button>
-            <button className="btn bg-blue-500 text-white font-bold"> Like Count</button>
+            <button onClick={()=>likeHandler(data?._id)} className="btn bg-blue-500 text-white font-bold">Like</button>
+            <button  className="btn bg-blue-500 text-white font-bold"> Like Count: {data?.likes} </button>
         </div>
         </div>
         

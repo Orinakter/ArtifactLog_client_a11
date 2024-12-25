@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
-import { data, useNavigate } from "react-router-dom";
+import { data, Link, useNavigate} from "react-router-dom";
 import { authorizedContext } from "../AuthProvider/AuthProvider";
 
 const MyArtifacts = () => {
   const { user } = useContext(authorizedContext);
   const [artifacts, setArtifacts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+ 
 
   useEffect(() => {
     fetch(`http://localhost:5000/myArtifact/${user?.email}`)
@@ -71,7 +72,8 @@ const MyArtifacts = () => {
                 {item?.presentLocation}
               </p>
               <div className="flex justify-center items-center gap-4 mt-6">
-                <button className="btn bg-blue-500 text-white font-bold">Update</button>
+                
+               <Link to = {`/update-artifact/${item?._id}`}> <button className="btn bg-blue-500 text-white font-bold">Update</button></Link>
                 <button className="btn bg-red-600 text-white font-bold">Delete</button>
               </div>
             </div>
