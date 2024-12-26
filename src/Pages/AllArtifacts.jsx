@@ -11,9 +11,7 @@ const AllArtifacts = () => {
        .then(data=>setArtifactData(data.data))
         
     },[search])
-
-    console.log(search);
-    
+ 
     return (
         <div className="">
             <Helmet>
