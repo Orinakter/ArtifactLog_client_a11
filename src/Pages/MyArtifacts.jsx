@@ -4,6 +4,7 @@ import { data, Link, useNavigate } from "react-router-dom";
 import { authorizedContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const MyArtifacts = () => {
   const { user } = useContext(authorizedContext);
@@ -48,7 +49,13 @@ const MyArtifacts = () => {
   };
 
   return (
-    <div className="">
+   <div className="">
+    <Helmet>
+      <title>
+      MyArtifacts || ArtifactLog
+      </title>
+    </Helmet>
+     <div className="">
       {loading ? (
         <div className="flex justify-center">
           <span className="loading loading-spinner loading-xs"></span>
@@ -117,6 +124,7 @@ const MyArtifacts = () => {
         </div>
       )}
     </div>
+   </div>
   );
 };
 

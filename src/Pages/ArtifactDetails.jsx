@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import { authorizedContext } from "../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet";
 import axios from "axios";
+import { AiFillDislike, AiFillLike } from "react-icons/ai";
 
 const ArtifactDetails = () => {
 
@@ -95,8 +96,8 @@ const ArtifactDetails = () => {
         
           <div className="flex-col flex lg:flex-row items-center gap-5 text-center mt-8 justify-center">
             {
-              likeLoad ? <button onClick={()=>likeHandler(data?._id)} className="btn bg-blue-500 text-white font-bold">Like</button> :
-              <button onClick={()=>disLikeHandler(data?._id)} className="btn bg-red-600 text-white font-bold">Dislike</button>
+              likeLoad ? <button onClick={()=>likeHandler(data?._id)} className="btn bg-blue-500 text-white font-bold"><span className="text-2xl"><AiFillLike /></span></button> :
+              <button onClick={()=>disLikeHandler(data?._id)} className="btn bg-red-600 text-white font-bold"><span className="text-2xl"><AiFillDislike /></span></button>
 
             }
             <button  className="btn bg-blue-500 text-white font-bold"> Like Count: {data?.likes} </button>
