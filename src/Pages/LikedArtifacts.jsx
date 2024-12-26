@@ -8,10 +8,10 @@ const LikedArtifacts = () => {
   const [likeData, setLikeData] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/mylike/${user?.email}`).then((res) => {
+    axios.get(`http://localhost:5000/mylike/${user?.email}`,{withCredentials:true}).then((res) => {
       setLikeData(res.data);
     });
-  }, []);
+  }, [user?.email]);
 
   return (
     <div>

@@ -13,12 +13,12 @@ const MyArtifacts = () => {
 
   
   useEffect(() => {
-    axios.get(`http://localhost:5000/myArtifact/${user?.email}`)
+    axios.get(`http://localhost:5000/myArtifact/${user?.email}`,{withCredentials:true})
       .then((data) => {
         setArtifacts(data.data);
         setLoading(false);
       });
-  }, []);
+  }, [user?.email]);
 
   const deleteHandler = (id) => {
     Swal.fire({
