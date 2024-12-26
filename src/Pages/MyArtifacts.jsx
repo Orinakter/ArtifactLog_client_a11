@@ -13,10 +13,9 @@ const MyArtifacts = () => {
 
   
   useEffect(() => {
-    fetch(`http://localhost:5000/myArtifact/${user?.email}`)
-      .then((res) => res.json())
+    axios.get(`http://localhost:5000/myArtifact/${user?.email}`)
       .then((data) => {
-        setArtifacts(data);
+        setArtifacts(data.data);
         setLoading(false);
       });
   }, []);

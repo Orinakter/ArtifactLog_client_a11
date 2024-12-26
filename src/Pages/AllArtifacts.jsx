@@ -1,16 +1,19 @@
-import { Axios } from 'axios';
+import axios, { Axios } from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 const AllArtifacts = () => {
     const [artifactData,setArtifactData] = useState([])
+    const [search,setSearch] = useState("")
     useEffect(()=>{
-        fetch(`http://localhost:5000/artifactlog`)
-        .then((res) => res.json())
-        .then(data=>setArtifactData(data))
+        axios.get(`http://localhost:5000/artifactlog?search=${search}`)
+       .then(data=>setArtifactData(data.data))
         
-    })
+    },[search])
+
+    console.log(search);
+    
     return (
         <div className="">
             <Helmet>
@@ -18,6 +21,28 @@ const AllArtifacts = () => {
                 AllArtifacts || ArtifactLog 
                 </title>
             </Helmet>
+
+            <div className="p-4 max-w-[400px] mx-auto">
+          
+          <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Search</span>
+          </label>
+          <input 
+          onBlur={(e)=>setSearch(e.target.value)}
+           type="text" name="search" className="input input-bordered" required />
+          
+          
+        </div>
+        <div className="flex justify-center">
+        <input type="submit"  value="Search" className="btn bg-blue-500 text-white font-bold mt-4" />
+        
+        </div>
+
+          
+
+          </div>
+            
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12'>
             {
                 artifactData.map(item=>(

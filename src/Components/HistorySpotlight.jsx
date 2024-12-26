@@ -25,7 +25,7 @@ const HistorySpotlight = () => {
          
           <div className="">
             <img
-              src="https://i.ibb.co.com/18Py9c0/images-1.jpg"
+              src="https://i.ibb.co.com/TBdgjsg/istockphoto-1420761661-612x612.jpg"
               alt=""
               className="rounded-lg shadow-lg w-full"
             />
@@ -50,7 +50,7 @@ const HistorySpotlight = () => {
             </ul>
             <a
               
-              className="inline-block mt-8 bg-gradient-to-tr from-blue-500 to-black py-3 px-8 rounded-lg font-bold shadow-md"
+              className="inline-block mt-8 bg-blue-500 text-white font-bold py-3 px-8 rounded-lg font-bold shadow-md"
             >
               Explore More
             </a>

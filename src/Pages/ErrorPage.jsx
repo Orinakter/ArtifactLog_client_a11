@@ -12,7 +12,7 @@ const ErrorPage = () => {
       </Helmet>
       <div className="">
         <img
-          src="https://i.ibb.co.com/WKwgp0q/istockphoto-537812190-612x612.jpg"
+          src="https://i.ibb.co.com/1mHrJ5q/istockphoto-1462864975-612x612.jpg"
           alt=""
           className="mx-auto mt-12 rounded-xl"
         />
