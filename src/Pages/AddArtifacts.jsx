@@ -38,9 +38,9 @@ const AddArtifacts = () => {
     };
 
     axios
-      .post(`http://localhost:5000/artifactlog`, artifactInfo)
+      .post(`https://artifact-log-server-side.vercel.app/artifactlog`, artifactInfo)
       .then((data) => {
-        console.log(data.data);
+       
 
         Swal.fire({
           title: "Success",

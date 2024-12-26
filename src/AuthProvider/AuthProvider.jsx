@@ -28,7 +28,7 @@ const AuthProvider = ({children}) => {
                 const user = {
                     email: currentUser.email
                 }
-                axios.post(`http://localhost:5000/jwt`,user,{
+                axios.post(`https://artifact-log-server-side.vercel.app/jwt`,user,{
                     withCredentials : true
                 })
                 .then(res=>{
@@ -36,7 +36,7 @@ const AuthProvider = ({children}) => {
                 })
             }
             else{
-                axios.post(`http://localhost:5000/logout`,{},{withCredentials: true})
+                axios.post(`https://artifact-log-server-side.vercel.app/logout`,{},{withCredentials: true})
                 .then(res=>{
                     setLoading(false)
                 })

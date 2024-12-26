@@ -13,7 +13,7 @@ const MyArtifacts = () => {
 
   
   useEffect(() => {
-    axios.get(`http://localhost:5000/myArtifact/${user?.email}`,{withCredentials:true})
+    axios.get(`https://artifact-log-server-side.vercel.app/myArtifact/${user?.email}`,{withCredentials:true})
       .then((data) => {
         setArtifacts(data.data);
         setLoading(false);
@@ -32,7 +32,7 @@ const MyArtifacts = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/deleteArtifact/${id}`)
+          .delete(`https://artifact-log-server-side.vercel.app/deleteArtifact/${id}`)
           .then((res) => {
             const remining = artifacts.filter((item) => item._id !== id);
             setArtifacts(remining);

@@ -7,7 +7,7 @@ const AllArtifacts = () => {
     const [artifactData,setArtifactData] = useState([])
     const [search,setSearch] = useState("")
     useEffect(()=>{
-        axios.get(`http://localhost:5000/artifactlog?search=${search}`)
+        axios.get(`https://artifact-log-server-side.vercel.app/artifactlog?search=${search}`)
        .then(data=>setArtifactData(data.data))
         
     },[search])

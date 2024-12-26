@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
             {
               path: "/",
               element: <HomePage></HomePage>,
-              loader:()=>fetch('http://localhost:5000/artifactCard')
+              loader:()=>fetch('https://artifact-log-server-side.vercel.app/artifactCard')
             },
             {
               path: "/all-artifacts",
@@ -50,7 +50,7 @@ export const router = createBrowserRouter([
             {
               path: "/update-artifact/:id",
               element: <UpdateArtifact></UpdateArtifact>,
-              loader : ({params})=>fetch(`http://localhost:5000/artifactlog/${params.id}`)
+              loader : ({params})=>fetch(`https://artifact-log-server-side.vercel.app/artifactlog/${params.id}`)
             },
             {
               path: "/my-artifacts",

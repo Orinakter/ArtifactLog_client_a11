@@ -16,7 +16,7 @@ const ArtifactDetails = () => {
   const {id} = useParams()
 
   useEffect(()=>{
-    axios.get(`http://localhost:5000/artifactlog/${id}`)
+    axios.get(`https://artifact-log-server-side.vercel.app/artifactlog/${id}`)
     .then(res=>{
       setData(res.data);
     })
@@ -28,7 +28,7 @@ const ArtifactDetails = () => {
 
   const likeHandler = (id)=>{
 
-    axios.patch(`http://localhost:5000/artifactLike/${id}`)
+    axios.patch(`https://artifact-log-server-side.vercel.app/artifactLike/${id}`)
 
     .then(res=>{
      setLikeLoad(false)
@@ -44,14 +44,14 @@ const ArtifactDetails = () => {
 
     }
 
-    axios.post(`http://localhost:5000/like`,body)
+    axios.post(`https://artifact-log-server-side.vercel.app/like`,body)
     .then(res=>{
-      console.log(res.data);
+      
     })
   }
 
   const disLikeHandler = (id)=>{
-    axios.patch(`http://localhost:5000/artifactDisLike/${id}`)
+    axios.patch(`https://artifact-log-server-side.vercel.app/artifactDisLike/${id}`)
     .then(res=>{
       setLikeLoad(true)
     })

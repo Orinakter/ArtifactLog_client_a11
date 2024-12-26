@@ -8,7 +8,7 @@ const LikedArtifacts = () => {
   const [likeData, setLikeData] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/mylike/${user?.email}`,{withCredentials:true}).then((res) => {
+    axios.get(`https://artifact-log-server-side.vercel.app/mylike/${user?.email}`,{withCredentials:true}).then((res) => {
       setLikeData(res.data);
     });
   }, [user?.email]);

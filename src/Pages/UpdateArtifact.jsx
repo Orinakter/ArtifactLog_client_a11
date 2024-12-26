@@ -38,11 +38,11 @@ const UpdateArtifact = () => {
 
     axios
       .patch(
-        `http://localhost:5000/updateArtifact/${data._id}`,
+        `https://artifact-log-server-side.vercel.app/updateArtifact/${data._id}`,
         updateArtifactInfo
       )
       .then((res) => {
-        console.log(res.data);
+      
 
         Swal.fire({
           title: "Success",
