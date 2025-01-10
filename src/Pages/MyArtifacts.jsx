@@ -55,12 +55,10 @@ const MyArtifacts = () => {
       </title>
     </Helmet>
      <div className="">
-      {loading ? (
-        <div className="flex justify-center">
-          <span className="loading loading-spinner loading-xs"></span>
-          <span className="loading loading-spinner loading-sm"></span>
-          <span className="loading loading-spinner loading-md"></span>
-          <span className="loading loading-spinner loading-lg"></span>
+     {artifacts.length === 0 ? (
+        <div className="mt-12 text-center p-8">
+          <h1 className="font-bold text-4xl">You have not added any artifacts yet. Start by adding one now!</h1>
+          
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
