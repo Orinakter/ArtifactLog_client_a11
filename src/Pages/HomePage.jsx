@@ -7,6 +7,7 @@ import { useLoaderData } from 'react-router-dom';
 import SeeAllButton from '../Components/SeeAllButton';
 import { Helmet } from 'react-helmet';
 import ArtifactQuiz from '../Components/ArtifactQuiz';
+import ArtifactTechniques from '../Components/ArtifactTechniques';
 
 const HomePage = () => {
     const allData = useLoaderData()
@@ -24,6 +25,7 @@ const HomePage = () => {
            <SeeAllButton></SeeAllButton>
            <LegacyOfCulture></LegacyOfCulture>
            <HistorySpotlight></HistorySpotlight>
+           <ArtifactTechniques></ArtifactTechniques>
            <ArtifactQuiz></ArtifactQuiz>
 
         </div>

@@ -48,12 +48,6 @@ const HistorySpotlight = () => {
               <li>Material: Rare Orichalcum Alloy</li>
               <li>Significance: Symbol of authority and mythological power</li>
             </ul>
-            <a
-              
-              className="inline-block mt-8 bg-blue-500 text-white font-bold py-3 px-8 rounded-lg font-bold shadow-md"
-            >
-              Explore More
-            </a>
           </div>
         </div>
       </div>
