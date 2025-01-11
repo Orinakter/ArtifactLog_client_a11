@@ -46,10 +46,12 @@ const AllArtifacts = () => {
                 artifactData.map(item=>(
                     <div key={item._id} className="border-2 p-8 rounded-xl">
                         <img src={item?.artifactImage} alt="" className="w-full h-[200px] rounded-xl" />
-                        <h1 className="text-lg font-semibold mt-5"><span className="text-xl font-bold">ArtifactName: </span>  {item?.artifactName}</h1>
+                       
+                       <h1 className="text-lg font-semibold mt-5"><span className="text-xl font-bold">ArtifactName: </span>  {item?.artifactName}</h1>
                         <p><span className="text-xl font-bold">ArtifactType: </span>{item?.artifactType}</p>
                         <p><span className="text-xl font-bold">DiscoveredBy: </span>{item?.discoveredBy}</p>
                         <p><span className="text-xl font-bold">PresentLocation: </span>{item?.presentLocation}</p>
+                       
 
                         <div className="mt-5 text-center">
                            <Link to={`/artifact-details/${item?._id}`}> <button className='btn bg-blue-500 text-white font-bold '>View Details</button></Link>

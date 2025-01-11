@@ -11,7 +11,7 @@ const Banner = () => {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
           }}
-          className="min-h-[60vh] w-full flex justify-center items-center "
+          className="min-h-[70vh] w-full flex justify-center items-center "
         >
           <h1 className="text-xl md:text-2xl lg:text-4xl text-white font-bold">
             Unlock the Stories Hidden in History with ArtifactsLog
@@ -35,7 +35,7 @@ const Banner = () => {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
           }}
-          className="min-h-[50vh] w-full bg-no-repeat bg-center bg-cover flex justify-center items-center "
+          className="min-h-[70vh] w-full bg-no-repeat bg-center bg-cover flex justify-center items-center "
         >
           <h1 className="text-xl md:text-2xl lg:text-4xl text-white font-bold">
             Unlock the Stories Hidden in History with ArtifactsLog
@@ -58,7 +58,7 @@ const Banner = () => {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
           }}
-          className="min-h-[50vh] w-full bg-no-repeat bg-center bg-cover flex justify-center items-center "
+          className="min-h-[70vh] w-full bg-no-repeat bg-center bg-cover flex justify-center items-center "
         >
           <h1 className="text-xl md:text-2xl lg:text-4xl text-white font-bold">
             Unlock the Stories Hidden in History with ArtifactsLog
@@ -81,7 +81,7 @@ const Banner = () => {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
           }}
-          className="min-h-[50vh] w-full bg-no-repeat bg-center bg-cover flex justify-center items-center "
+          className="min-h-[70vh] w-full bg-no-repeat bg-center bg-cover flex justify-center items-center "
         >
           <h1 className="text-xl md:text-2xl lg:text-4xl text-white font-bold">
             Unlock the Stories Hidden in History with ArtifactsLog
