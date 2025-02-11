@@ -154,8 +154,8 @@ const MyArtifacts = () => {
                 <thead>
                   <tr className="bg-gray-200 w-full">
                     <th>SL</th>
-                    <th>ArtifactName</th>
                     <th>ArtifactImage</th>
+                    <th>ArtifactName</th>
                     <th>ArtifactType</th>
                     <th>HistoricalContext</th>
                     <th>CreatedAt</th>
@@ -171,13 +171,14 @@ const MyArtifacts = () => {
                   {artifacts.map((item, index) => (
                     <tr className="bg-white my-2" key={item?._id}>
                       <td>{index + 1}</td>
-                      <td>{item?.artifactName}</td>
-                      <td>
-                        <img
+                      <img
                           src={item?.artifactImage}
                           alt=""
                           className="w-12 h-12 rounded-full"
                         />
+                      <td>{item?.artifactName}</td>
+                      <td>
+                        
                       </td>
                       <td>{item?.artifactType}</td>
                       <td>{item?.historicalContext}</td>

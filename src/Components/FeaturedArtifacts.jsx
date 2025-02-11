@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const FeaturedArtifacts = ({allData}) => {
     return (
-        <div className='mt-16'>
+        <div className='mt-16 container mx-auto'>
             <h1 className='text-4xl text-center mb-12 font-bold'>Featured Artifacts</h1>
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-col-3 gap-6 mt-16 ">
                 {
