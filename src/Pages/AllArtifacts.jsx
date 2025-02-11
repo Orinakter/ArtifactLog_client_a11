@@ -44,13 +44,15 @@ const AllArtifacts = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12'>
             {
                 artifactData.map(item=>(
-                    <div key={item._id} className="border-2 p-8 rounded-xl">
+                    <div key={item._id} className="border-2 p-8 rounded-xl flex flex-col">
                         <img src={item?.artifactImage} alt="" className="w-full h-[200px] rounded-xl" />
                        
-                       <h1 className="text-lg font-semibold mt-5"><span className="text-xl font-bold">ArtifactName: </span>  {item?.artifactName}</h1>
+                      <div className="flex-1">
+                      <h1 className="text-lg font-semibold mt-5"><span className="text-xl font-bold">ArtifactName: </span>  {item?.artifactName}</h1>
                         <p><span className="text-xl font-bold">ArtifactType: </span>{item?.artifactType}</p>
                         <p><span className="text-xl font-bold">DiscoveredBy: </span>{item?.discoveredBy}</p>
                         <p><span className="text-xl font-bold">PresentLocation: </span>{item?.presentLocation}</p>
+                      </div>
                        
 
                         <div className="mt-5 text-center">
