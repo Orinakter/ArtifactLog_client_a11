@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../AuthProvider/ThemeProvider';
 
 const LegacyOfCulture = () => {
+  const {theme} = useContext(ThemeContext)
+  
     return (
-        <div className='mt-16'>
+        <div className={`${theme?"bg-white text-black" : "bg-gray-800 text-white" }`}>
             <h1 className='text-5xl font-bold text-center mb-10'>Legacy of Cultures</h1>
              <div className="bg-gray-100 text-gray-800 py-20 rounded-lg">
       <div className="container mx-auto px-6 lg:px-16">
