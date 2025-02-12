@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Banner from '../Components/Banner';
 import HistorySpotlight from '../Components/HistorySpotlight';
 import LegacyOfCulture from '../Components/LegacyOfCulture';
@@ -8,12 +8,14 @@ import SeeAllButton from '../Components/SeeAllButton';
 import { Helmet } from 'react-helmet';
 import ArtifactQuiz from '../Components/ArtifactQuiz';
 import ArtifactTechniques from '../Components/ArtifactTechniques';
+import { ThemeContext } from '../AuthProvider/ThemeProvider';
 
 const HomePage = () => {
     const allData = useLoaderData()
+    const {theme} = useContext(ThemeContext)
     
     return (
-        <div>
+        <div className={`${theme?"bg-gray-800 text-white" : "bg-white text-black" }`}>
             <Helmet>
                <title>
                Home || ArtifactLog
