@@ -45,17 +45,7 @@ const LikedArtifacts = () => {
                 <span className="text-xl font-semibold">ArtifactType: </span>
                 {likes?.artifactType}
               </p>
-              <p>
-                <span className="text-xl font-semibold">
-                  HistoricalContext:{" "}
-                </span>
-                {likes?.historicalContext}
-              </p>
-
-              <p>
-                <span className="text-xl font-semibold">CreatedAt: </span>
-                {likes?.createdAt}
-              </p>
+             
 
               <p>
                 <span className="text-xl font-semibold">PresentLocation: </span>
