@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../AuthProvider/ThemeProvider';
 
 const HistorySpotlight = () => {
+   const {theme} = useContext(ThemeContext)
     return (
-        <div className='mt-10'>
+        <div className={`${theme?"bg-white text-black" : "bg-gray-800 text-white" }`}>
             <h1 className='text-3xl font-bold text-center'>History Spotlight</h1>
              <section className="mt-5 py-20 bg-gray-100 rounded-lg text-white overflow-hidden">
       
