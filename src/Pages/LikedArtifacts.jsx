@@ -19,7 +19,7 @@ const LikedArtifacts = () => {
         <title>LikedArtifacts || ArtifactLog</title>
       </Helmet>
       {likeData.length === 0 ? (
-        <div className="mt-12 text-center p-8">
+        <div className="mt-12 text-center p-8 ">
           <h1 className="font-bold text-4xl">No Data Found</h1>
           <img
             src="https://i.ibb.co.com/HTD0mTy/istockphoto-627210236-612x612.jpg"
@@ -28,7 +28,7 @@ const LikedArtifacts = () => {
           />
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 container mx-auto">
           {likeData.map((likes) => (
             <div key={likes._id} className="border-2 rounded-xl p-10">
               <img
